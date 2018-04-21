@@ -1,0 +1,22 @@
+/**
+ * @Author: devin
+ * @Date:   2018-03-23T15:10:26+08:00
+ * @Last modified by:   devin
+ * @Last modified time: 2018-03-23T15:29:29+08:00
+ */
+ .footer{
+	 padding-bottom: 10px;
+ }
+ .footer .links{
+	text-align: center;
+	color: #666;
+	line-height: 30px;
+}
+.footer .links .link{
+	padding: 0 10px;
+}
+ .footer .copyright{
+	 text-align: center;
+	 color: #666;
+	 line-height: 30px;
+}

@@ -1,0 +1,59 @@
+/**
+ * @Date:   2018-03-23T14:25:56+08:00
+ * @Last modified time: 2018-03-23T14:39:39+08:00
+ */
+
+.nav{
+	background: #eee;
+	height: 30px;
+	line-height: 30px;
+}
+.nav .user{
+	float:left;
+}
+.nav .user.login{
+	display: none;
+}
+.nav .user .link{
+	margin-right:5px;
+}
+.nav .nav-list{
+	float:right;
+}
+.nav .nav-list .nav-item{
+	display: inline-block;
+	margin-left:5px;
+}
+/**
+ * @Author: devin
+ * @Date:   2018-03-23T15:36:04+08:00
+ * @Last modified by:   devin
+ * @Last modified time: 2018-03-23T15:59:49+08:00
+ */
+
+.header .logo{
+	position: absolute;
+	left: 60px;
+	top: 34px;
+	display: block;
+	font-size: 36px;
+	color: #c60023;
+	font-weight:bold;
+}
+.header .search-con{
+	padding:40px 0 30px 250px;
+}
+.header .search-con .search-input{
+	width: 550px;
+	height:40px;
+	line-height: 40px;
+	padding-left: 10px;
+	font-size: 15px;
+	border: 2px solid #c60023;
+	outline: none;
+}
+.header .search-con .search-btn{
+	position: absolute;
+	height: 44px;
+	width: 80px;
+}

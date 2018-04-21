@@ -1,0 +1,39 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Zefey's Blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env WEBPACK_ENV=production webpack --config webpack.config.js",
+    "dev": "cross-env WEBPACK_ENV=development webpack-dev-server --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Zefey/blog.git"
+  },
+  "keywords": [
+    "blog",
+    "zefey"
+  ],
+  "author": "zefey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zefey/blog/issues"
+  },
+  "homepage": "https://github.com/Zefey/blog#readme",
+  "dependencies": {
+    "cross-env": "5.1.3",
+    "css-loader": "0.28.7",
+    "extract-text-webpack-plugin": "3.0.2",
+    "file-loader": "1.1.6",
+    "font-awesome": "^4.7.0",
+    "hogan.js": "^3.0.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "2.30.1",
+    "style-loader": "0.19.1",
+    "url-loader": "0.6.2",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.9.7"
+  }
+}
