@@ -7,7 +7,7 @@
 
 var Hogan = require('hogan.js');
 var conf = {
-	serverHost: '',
+	serverHost: 'http://www.zefey.com:8888',
 }
 
 var util = {
@@ -19,11 +19,11 @@ var util = {
 			dataType : param.type || 'json',
 			data : param.data || '',
 			success : function(res){
-				if(res.status === 0){
+				if(res.status === 1){
 					typeof param.success === 'function' && param.success(res.data,res.msg);
 				}else if(res.status === 10){
 					_this.doLogin();
-				}else if(res.status === 1){
+				}else if(res.status === 0){
 					typeof param.error === 'function' && param.error(res.msg);
 				}
 			},
