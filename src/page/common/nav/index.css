@@ -11,17 +11,32 @@
 .nav .nav-bar{
 	float:left;
 }
-.nav .user.login{
-	display: none;
-}
-.nav .user .link{
-	margin-right:5px;
-}
 .nav .nav-search{
 	float:right;
 }
 .nav .nav-item{
-    width: 50px;
+    display: inline-block;
+    text-align: center;
+}
+.nav .nav-item .link{
+    display: inline-block;
+    padding:0 26px;
     font-size: 14px;
-	display: inline-block;
+    font-weight: 600;
+    color: #fff;
+}
+.nav .nav-item .link:hover{
+	color: #56adf9;
+    background-color: #333;
+    border-color: #333;
+}
+.nav-search .search-input{
+    padding: 6px;
+}
+.nav-search .search-icon{
+    cursor: pointer;
+    position: absolute;
+    top:0%;
+    right:1%;
+    color: #999;
 }

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<%= require('html-loader!./layout/head-common.html')%>
-		<title>Zefey</title>
+		<title><%= htmlWebpackPlugin.options.title%></title>
 	</head>
 	<body>
 		<%= require('html-loader!./layout/header.html')%>

@@ -113,7 +113,7 @@ var util = __webpack_require__(0);
 var _user = {
 	login : function (userInfo, resolve , reject){
 		util.request({
-			url : util.getServerUrl('/user/login.do'),
+			url : util.getServerUrl('/user/login'),
 			data : userInfo,
 			method : 'POST',
 			success: resolve,

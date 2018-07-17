@@ -5,7 +5,7 @@
  * @Last modified time: 2018-03-23T15:29:29+08:00
  */
  .footer{
-	 padding-bottom: 10px;
+     background-color: #444;
  }
  .footer .links{
 	text-align: center;
@@ -17,6 +17,6 @@
 }
  .footer .copyright{
 	 text-align: center;
-	 color: #666;
-	 line-height: 30px;
+	 color: #ddd;
+	 line-height: 60px;
 }

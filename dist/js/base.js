@@ -161,9 +161,9 @@
  * @Last modified time: 2018-03-27T15:13:43+08:00
  */
 
-var Hogan = __webpack_require__(10);
+var Hogan = __webpack_require__(11);
 var conf = {
-	serverHost: '',
+	serverHost: 'http://www.zefey.com:8888',
 }
 
 var util = {
@@ -175,11 +175,11 @@ var util = {
 			dataType : param.type || 'json',
 			data : param.data || '',
 			success : function(res){
-				if(res.status === 0){
+				if(res.status === 1){
 					typeof param.success === 'function' && param.success(res.data,res.msg);
 				}else if(res.status === 10){
 					_this.doLogin();
-				}else if(res.status === 1){
+				}else if(res.status === 0){
 					typeof param.error === 'function' && param.error(res.msg);
 				}
 			},
@@ -233,28 +233,47 @@ module.exports = util;
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
- * @Date:   2018-03-23T14:03:41+08:00
- * @Last modified time: 2018-03-23T14:04:28+08:00
+ * @Author: devin
+ * @Date:   2018-03-23T15:35:59+08:00
+ * @Last modified by:   devin
+ * @Last modified time: 2018-03-23T15:58:47+08:00
  */
 
-__webpack_require__(9);
+__webpack_require__(14);
+
 var util = __webpack_require__(0);
 
-var page = {
-    init: function(){
-        this.bindEvent();
-    },
-    bindEvent: function(){
-        var _this = this;
-        $('.logo').click(function (){
-            util.goHome();
-        });
-    }
+var header = {
+	init : function(){
+		this.bindEvent();
+	},
+	onLoad : function(){
+		var keyword = util.getUrlParm('keyword');
+		if(keyword){
+			$('#search-input').val(keyword);
+		};
+	},
+	bindEvent : function(){
+		var _this = this;
+		$('#search-btn').click(function(){
+			_this.searchSubmit();
+		});
+		$('#search-input').keyup(function(e){
+			if(e.keyCode === 13){
+				_this.searchSubmit();
+			}
+		});
+	},
+	searchSubmit : function(){
+		var keyword = $.trim($('#search-input').val());
+		if(keyword){
+			window.location.href = './list.html?keyword=' + keyword;
+		}else{
+			util.goHome();
+		}
+	}
 }
-
-$(function(){
-    page.init();
-})
+header.init();
 
 
 /***/ }),
@@ -302,13 +321,9 @@ __webpack_require__(6);
 /***/ }),
 /* 7 */,
 /* 8 */,
-/* 9 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 10 */
+/* 9 */,
+/* 10 */,
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -328,14 +343,14 @@ __webpack_require__(6);
 
 // This file is for use with Node.js. See dist/ for browser files.
 
-var Hogan = __webpack_require__(11);
-Hogan.Template = __webpack_require__(12).Template;
+var Hogan = __webpack_require__(12);
+Hogan.Template = __webpack_require__(13).Template;
 Hogan.template = Hogan.Template;
 module.exports = Hogan;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -764,7 +779,7 @@ module.exports = Hogan;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -1109,6 +1124,12 @@ var Hogan = {};
 
 })( true ? exports : Hogan);
 
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

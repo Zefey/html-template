@@ -12,10 +12,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const isDev = process.env.WEBPACK_ENV === 'development';
 
 // 获取 html-webpack-plugin 参数的方法
-var getHtmlConfig = function (name){
+var getHtmlConfig = function (name, title){
 	return {
 		template:__dirname + '/src/view/'+ name +'.html',
 		filename:'view/'+ name +'.html',
+        title:title,
 		inject:true,
 		hash:true,
 		chunks:['common', name]
@@ -50,7 +51,7 @@ var config = {
                 test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
                 use: [{
                     loader: 'url-loader',
-                    options: {limit: 100,name: 'resource/[name].[ext]'}
+                    options: {limit: 100,name: '/resource/[name].[ext]'}
                 }]
             },
         ]
@@ -78,8 +79,8 @@ var config = {
 		// 独立打包css
 		new ExtractTextPlugin('css/[name].css'),
 		// html模版处理
-        new HtmlWebpackPlugin(getHtmlConfig('index')),
-        new HtmlWebpackPlugin(getHtmlConfig('user-login'))
+        new HtmlWebpackPlugin(getHtmlConfig('index','首页')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-login','登录'))
 	]
 };
 
@@ -88,6 +89,7 @@ if(isDev){
     config.devServer = {
         port: '8000',
         host: '0.0.0.0',
+        disableHostCheck: true,
         overlay: {
             errors:true,
         },
