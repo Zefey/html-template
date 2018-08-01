@@ -1,0 +1,21 @@
+{{#list}}
+    <div class="item">
+        <div class="article">
+            <a class="article-title" href="./view/detail.html?id={{id}}"><h4>{{title}}</h4></a>
+            <p class="article-info">
+                <span>post @ {{time}}</span>
+                <span>category: {{category}}</span>
+                <span></span>
+            </p>
+            <div class="article-content">
+                {{content}}
+            </div>
+            <span class="article-link">
+                <a href="./detail.html?id={{id}}" class="link">阅读原文>></a>
+            </span>
+        </div>
+    </div>
+{{/list}}
+
+{{^list}}
+{{/list}}

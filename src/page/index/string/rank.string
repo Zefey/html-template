@@ -1,0 +1,6 @@
+{{#list}}
+    <li><a href="#">{{title}}</a></li>
+{{/list}}
+
+{{^list}}
+{{/list}}

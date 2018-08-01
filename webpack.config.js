@@ -27,8 +27,8 @@ var getHtmlConfig = function (name, title){
 var config = {
 	entry: {
 		'common':[__dirname + '/src/page/common/index.js'],
-		'index': [__dirname + '/src/page/index/index.js'],
-        'user-login': [__dirname + '/src/page/user-login/index.js'],
+        'index': [__dirname + '/src/page/index/index.js'],
+		'detail': [__dirname + '/src/page/detail/index.js']
 	},
 	output: {
 		path: __dirname + '/dist',
@@ -54,6 +54,10 @@ var config = {
                     options: {limit: 100,name: '/resource/[name].[ext]'}
                 }]
             },
+            {
+                test: /\.string$/,
+                use:[{loader: 'html-loader'}]
+            }
         ]
    },
 	resolve:{
@@ -80,7 +84,7 @@ var config = {
 		new ExtractTextPlugin('css/[name].css'),
 		// html模版处理
         new HtmlWebpackPlugin(getHtmlConfig('index','首页')),
-        new HtmlWebpackPlugin(getHtmlConfig('user-login','登录'))
+        new HtmlWebpackPlugin(getHtmlConfig('detail','详情')),
 	]
 };
 

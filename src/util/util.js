@@ -20,7 +20,7 @@ var util = {
 			data : param.data || '',
 			success : function(res){
 				if(res.status === 1){
-					typeof param.success === 'function' && param.success(res.data,res.msg);
+					typeof param.success === 'function' && param.success(res);
 				}else if(res.status === 10){
 					_this.doLogin();
 				}else if(res.status === 0){
@@ -61,6 +61,15 @@ var util = {
 			return /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(value);
 		}
 	},
+    dateFormat: function(date){
+        var year = date.getFullYear(),
+            month = date.getMonth()+1,
+            day = date.getDate(),
+            hour = date.getHours(),
+            min = date.getMinutes(),
+            sec = date.getSeconds();
+        return year+'-'+month+'-'+day;
+    },
 	doLogin : function(){
 		window.location.href = './user-login.html?redirect='+ encodeURIComponent(window.location.href);
 	},
