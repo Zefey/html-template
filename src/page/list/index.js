@@ -17,15 +17,31 @@ var templateIndex   = require('./index.string');
 
 var page = {
     data: {
-        pageNum:1
+        pageNum:1,
+        keyWord:'',
+        categoryId:'',
+        labelId:''
     },
     init: function(){
         this.onLoad();
         this.bindEvent();
     },
-    onLoad: function(){
+    onLoad : function(){
+        var keyWord = util.getUrlParam('keyWord');
+        var categoryId = util.getUrlParam('categoryId');
+		var labelId = util.getUrlParam('labelId');
+		if(keyWord){
+            this.data.keyWord=keyWord;
+			$('.search-input').val(keyWord);
+		}
+        if(categoryId){
+            this.data.categoryId=categoryId;
+		}
+        if(labelId){
+            this.data.labelId=labelId;
+		}
         this.list();
-    },
+	},
     bindEvent: function(){
         var _this = this;
         //监听滚动
@@ -57,6 +73,9 @@ var page = {
     list: function(){
         var _this =this;
         var reqData ={
+            keyWord : this.data.keyWord,
+            categoryId : this.data.categoryId,
+            labelId : this.data.labelId,
             pageNum:this.data.pageNum
         };
 

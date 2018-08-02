@@ -12,23 +12,25 @@ var page = {
     },
     bindEvent: function(){
         var _this = this;
-        $('.js-login').click(function (){
-            util.doLogin();
+        $('.link:first').click(function (){
+            util.goHome();
+        });
+        $('.search-icon').click(function (){
+            _this.searchSubmit();
+        });
+        $('.search-input').keyup(function (e){
+            if(e.keyCode === 13){
+                _this.searchSubmit();
+            }
         });
 
-        $('.js-register').click(function (){
-            window.location.href = './user-register.html'
-        });
-
-        $('.js-logout').click(function (){
-            _user.logout(function(res){
-                window.location.reload();
-            }, function(errMsg){
-                util.errorTips(errMsg);
-            })
-        });
-
-    }
+    },
+    searchSubmit : function(){
+		var keyWord = $.trim($('.search-input').val());
+		if(keyWord){
+            window.location.href = './list.html?keyWord='+ keyWord;
+		}
+	}
 }
 
 $(function(){

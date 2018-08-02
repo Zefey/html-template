@@ -43,6 +43,15 @@ var blog = {
             success : resolve,
             error : reject
         })
+    },
+    detail: function(reqData, resolve, reject){
+        util.request({
+            url : util.getServerUrl('/blog/detail'),
+            data : reqData,
+            method : 'GET',
+            success : resolve,
+            error : reject
+        })
     }
 }
 

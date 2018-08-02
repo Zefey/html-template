@@ -34,7 +34,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		2: 0
+/******/ 		3: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -147,7 +147,7 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -161,7 +161,7 @@
  * @Last modified time: 2018-03-27T15:13:43+08:00
  */
 
-var Hogan = __webpack_require__(11);
+var Hogan = __webpack_require__(17);
 var conf = {
 	serverHost: 'http://www.zefey.com:8888',
 }
@@ -176,7 +176,7 @@ var util = {
 			data : param.data || '',
 			success : function(res){
 				if(res.status === 1){
-					typeof param.success === 'function' && param.success(res.data,res.msg);
+					typeof param.success === 'function' && param.success(res);
 				}else if(res.status === 10){
 					_this.doLogin();
 				}else if(res.status === 0){
@@ -217,6 +217,15 @@ var util = {
 			return /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(value);
 		}
 	},
+    dateFormat: function(date){
+        var year = date.getFullYear(),
+            month = date.getMonth()+1,
+            day = date.getDate(),
+            hour = date.getHours(),
+            min = date.getMinutes(),
+            sec = date.getSeconds();
+        return year+'-'+month+'-'+day;
+    },
 	doLogin : function(){
 		window.location.href = './user-login.html?redirect='+ encodeURIComponent(window.location.href);
 	},
@@ -234,12 +243,120 @@ module.exports = util;
 
 /**
  * @Author: devin
+ * @Date:   2018-03-27T14:45:17+08:00
+ * @Last modified by:
+ * @Last modified time: 2018-03-28T11:07:03+08:00
+ */
+
+var util = __webpack_require__(0);
+
+var blog = {
+    list : function (reqData, resolve , reject){
+		util.request({
+			url : util.getServerUrl('/blog'),
+			data : reqData,
+			method : 'GET',
+			success: resolve,
+			error : reject
+		});
+	},
+    rank : function (reqData, resolve , reject){
+		util.request({
+			url : util.getServerUrl('/blog/rank'),
+			data : reqData,
+			method : 'GET',
+			success: resolve,
+			error : reject
+		});
+	},
+	category : function (reqData, resolve , reject){
+		util.request({
+			url : util.getServerUrl('/blog/category'),
+			data : reqData,
+			method : 'GET',
+			success: resolve,
+			error : reject
+		});
+	},
+    label: function(reqData, resolve, reject){
+        util.request({
+            url : util.getServerUrl('/blog/label'),
+            data : reqData,
+            method : 'GET',
+            success : resolve,
+            error : reject
+        })
+    },
+    detail: function(reqData, resolve, reject){
+        util.request({
+            url : util.getServerUrl('/blog/detail'),
+            data : reqData,
+            method : 'GET',
+            success : resolve,
+            error : reject
+        })
+    }
+}
+
+module.exports = blog;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * @Date:   2018-03-23T14:26:03+08:00
+ * @Last modified time: 2018-03-23T14:26:17+08:00
+ */
+
+__webpack_require__(16);
+var util = __webpack_require__(0);
+
+var page = {
+    init: function(){
+        this.bindEvent();
+    },
+    bindEvent: function(){
+        var _this = this;
+        $('.link:first').click(function (){
+            util.goHome();
+        });
+        $('.search-icon').click(function (){
+            _this.searchSubmit();
+        });
+        $('.search-input').keyup(function (e){
+            if(e.keyCode === 13){
+                _this.searchSubmit();
+            }
+        });
+
+    },
+    searchSubmit : function(){
+		var keyWord = $.trim($('.search-input').val());
+		if(keyWord){
+            window.location.href = './list.html?keyWord='+ keyWord;
+		}
+	}
+}
+
+$(function(){
+    page.init();
+})
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * @Author: devin
  * @Date:   2018-03-23T15:35:59+08:00
  * @Last modified by:   devin
  * @Last modified time: 2018-03-23T15:58:47+08:00
  */
 
-__webpack_require__(14);
+__webpack_require__(20);
 
 var util = __webpack_require__(0);
 
@@ -247,44 +364,124 @@ var header = {
 	init : function(){
 		this.bindEvent();
 	},
-	onLoad : function(){
-		var keyword = util.getUrlParm('keyword');
-		if(keyword){
-			$('#search-input').val(keyword);
-		};
-	},
 	bindEvent : function(){
 		var _this = this;
-		$('#search-btn').click(function(){
-			_this.searchSubmit();
-		});
-		$('#search-input').keyup(function(e){
-			if(e.keyCode === 13){
-				_this.searchSubmit();
-			}
-		});
-	},
-	searchSubmit : function(){
-		var keyword = $.trim($('#search-input').val());
-		if(keyword){
-			window.location.href = './list.html?keyword=' + keyword;
-		}else{
-			util.goHome();
-		}
+
+        $('.logo').click(function (){
+            util.goHome();
+        });
+
 	}
 }
 header.init();
 
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(3);
+/**
+ * @Author: zefey
+ * @Date:   2018-03-01T14:08:49+08:00
+ * @Last modified by:   devin
+ * @Last modified time: 2018-03-23T15:40:13+08:00
+ */
+
+__webpack_require__(21)
+
+var util = __webpack_require__(0);
+var blog = __webpack_require__(1);
+var templateRank   = __webpack_require__(22);
+var templateCategory   = __webpack_require__(23);
+var templateLabel   = __webpack_require__(24);
+
+var page = {
+    init: function(){
+        this.onLoad();
+        this.bindEvent();
+    },
+    onLoad: function(){
+        this.rank();
+        this.category();
+        this.label();
+    },
+    bindEvent: function(){
+        //css3动画 animated.css
+        $(".panel").addClass('animated lightSpeedIn');
+    },
+    rank: function(){
+        var reqData ={
+        };
+
+        blog.rank(reqData,function(res){
+            listHtml = util.renderHtml(templateRank, {
+                list : res.data
+            });
+            $(".blog-list").html(listHtml);
+        },
+        function (errMsg) {
+            console.log(errMsg);
+        });
+    },
+    category: function(){
+        var reqData ={
+        };
+
+        blog.category(reqData,function(res){
+            listHtml = util.renderHtml(templateCategory, {
+                list : res.data
+            });
+            $(".panel-body .category").html(listHtml);
+        },
+        function (errMsg) {
+            console.log(errMsg);
+        });
+    },
+    label: function(){
+        var reqData ={
+        };
+
+        blog.label(reqData,function(res){
+            var data = res.data;
+            var styles = [
+                'background-color:rgb(255, 85, 0)',
+                'background-color:rgb(248, 167, 42)',
+                'background-color:rgb(107, 97, 240)',
+                'background-color:rgb(135, 208, 104)',
+                'background-color:rgb(16, 142, 233)'
+            ]
+            for(var i in data){
+                let random =  Math.floor(Math.random()*5);
+                data[i]['style']=styles[random];
+            }
+            listHtml = util.renderHtml(templateLabel, {
+                list : data
+            });
+            $(".panel-body .label").html(listHtml);
+        },
+        function (errMsg) {
+            console.log(errMsg);
+        });
+    }
+}
+
+$(function(){
+    page.init();
+})
 
 
 /***/ }),
-/* 3 */
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(9);
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -295,35 +492,46 @@ module.exports = __webpack_require__(3);
  */
 
 
-__webpack_require__(4);
-__webpack_require__(5);
-__webpack_require__(6);
+__webpack_require__(10);
+__webpack_require__(11);
+__webpack_require__(12);
+__webpack_require__(13);
 
 
 /***/ }),
-/* 4 */
+/* 10 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
 /* 11 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 14 */,
+/* 15 */,
+/* 16 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -343,14 +551,14 @@ __webpack_require__(6);
 
 // This file is for use with Node.js. See dist/ for browser files.
 
-var Hogan = __webpack_require__(12);
-Hogan.Template = __webpack_require__(13).Template;
+var Hogan = __webpack_require__(18);
+Hogan.Template = __webpack_require__(19).Template;
 Hogan.template = Hogan.Template;
 module.exports = Hogan;
 
 
 /***/ }),
-/* 12 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -779,7 +987,7 @@ module.exports = Hogan;
 
 
 /***/ }),
-/* 13 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -1126,10 +1334,34 @@ var Hogan = {};
 
 
 /***/ }),
-/* 14 */
+/* 20 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+module.exports = "{{#list}}\r\n    <li><a href=\"/dist/view/detail.html?id={{id}}\">{{title}}</a></li>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+module.exports = "{{#list}}\r\n    <li><a href=\"/dist/view/list.html?categoryId={{id}}\">{{name}}</a></li>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+module.exports = "{{#list}}\r\n    <a href=\"/dist/view/list.html?labelId={{id}}\"><span class=\"tag-item\" style='{{style}}'>{{name}}</span></a>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
 
 /***/ })
 /******/ ]);

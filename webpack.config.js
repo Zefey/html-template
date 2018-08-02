@@ -28,7 +28,8 @@ var config = {
 	entry: {
 		'common':[__dirname + '/src/page/common/index.js'],
         'index': [__dirname + '/src/page/index/index.js'],
-		'detail': [__dirname + '/src/page/detail/index.js']
+        'detail': [__dirname + '/src/page/detail/index.js'],
+        'list': [__dirname + '/src/page/list/index.js']
 	},
 	output: {
 		path: __dirname + '/dist',
@@ -83,8 +84,9 @@ var config = {
 		// 独立打包css
 		new ExtractTextPlugin('css/[name].css'),
 		// html模版处理
-        new HtmlWebpackPlugin(getHtmlConfig('index','首页')),
-        new HtmlWebpackPlugin(getHtmlConfig('detail','详情')),
+        new HtmlWebpackPlugin(getHtmlConfig('index','首页 - Zefey')),
+        new HtmlWebpackPlugin(getHtmlConfig('detail','详情 - Zefey')),
+        new HtmlWebpackPlugin(getHtmlConfig('list','列表 - Zefey'))
 	]
 };
 

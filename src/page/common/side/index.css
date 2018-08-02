@@ -6,8 +6,8 @@
 .panel {
     box-shadow: 0 0 5px #aaa;
     margin: 10px;
-    animation: b 1s;
-    -webkit-animation: b 1s;
+    /* animation: b 1s; */
+    /* -webkit-animation: b 1s; */
 }
 
 ol>li {

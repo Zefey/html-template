@@ -9,3 +9,4 @@
 require('./footer/index.css');
 require('./layout.css');
 require('node_modules/font-awesome/css/font-awesome.min.css');
+require('node_modules/animate.css/animate.min.css');

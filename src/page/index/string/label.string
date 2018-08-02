@@ -1,6 +1,0 @@
-{{#list}}
-    <a href="#"><span class="tag-item" style='{{style}}'>{{name}}</span></a>
-{{/list}}
-
-{{^list}}
-{{/list}}

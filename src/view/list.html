@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%= require('html-loader!./layout/head-common.html')%>
+		<title><%= htmlWebpackPlugin.options.title%></title>
+	</head>
+	<body>
+        <%= require('html-loader!./layout/header.html')%>
+        <%= require('html-loader!./layout/nav.html')%>
+        <div class="container">
+
+        	<div class="w">
+                <div class="list">
+                </div>
+        		<%= require('html-loader!./layout/side.html')%>
+        	</div>
+            <div class="w">
+                <!-- 分页容器 -->
+                <div class="pagination"></div>
+            </div>
+        </div>
+		<%= require('html-loader!./layout/footer.html')%>
+        <div class="scroll-top" id="scrollTop">
+            <i class="fa fa-angle-double-up"></i>
+        </div>
+	</body>
+
+</html>
