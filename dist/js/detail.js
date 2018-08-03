@@ -58,7 +58,7 @@ var page = {
             }
         });
         //css3动画 animated.css
-        $('.detail').addClass('animated rubberBand');
+        $('.detail').addClass('animated bounceInUp');
     },
     detail: function(){
         var _this =this;
