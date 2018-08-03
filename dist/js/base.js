@@ -141,7 +141,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/dist";
+/******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// on error function for async loading
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
@@ -163,7 +163,7 @@
 
 var Hogan = __webpack_require__(17);
 var conf = {
-	serverHost: 'http://www.zefey.com:8888',
+	serverHost: 'http://zefey.com',
 }
 
 var util = {
@@ -1349,19 +1349,19 @@ var Hogan = {};
 /* 22 */
 /***/ (function(module, exports) {
 
-module.exports = "{{#list}}\r\n    <li><a href=\"/dist/view/detail.html?id={{id}}\">{{title}}</a></li>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
+module.exports = "{{#list}}\r\n    <li><a href=\"./detail.html?id={{id}}\">{{title}}</a></li>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
 
 /***/ }),
 /* 23 */
 /***/ (function(module, exports) {
 
-module.exports = "{{#list}}\r\n    <li><a href=\"/dist/view/list.html?categoryId={{id}}\">{{name}}</a></li>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
+module.exports = "{{#list}}\r\n    <li><a href=\"./list.html?categoryId={{id}}\">{{name}}</a></li>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
 
 /***/ }),
 /* 24 */
 /***/ (function(module, exports) {
 
-module.exports = "{{#list}}\r\n    <a href=\"/dist/view/list.html?labelId={{id}}\"><span class=\"tag-item\" style='{{style}}'>{{name}}</span></a>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
+module.exports = "{{#list}}\r\n    <a href=\"./list.html?labelId={{id}}\"><span class=\"tag-item\" style='{{style}}'>{{name}}</span></a>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
 
 /***/ })
 /******/ ]);

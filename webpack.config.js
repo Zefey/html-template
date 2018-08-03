@@ -15,8 +15,8 @@ const isDev = process.env.WEBPACK_ENV === 'development';
 var getHtmlConfig = function (name, title){
 	return {
 		template:__dirname + '/src/view/'+ name +'.html',
-		filename:'view/'+ name +'.html',
-        title:title,
+		filename: name +'.html',
+    title:title,
 		inject:true,
 		hash:true,
 		chunks:['common', name]
@@ -33,7 +33,7 @@ var config = {
 	},
 	output: {
 		path: __dirname + '/dist',
-		publicPath:'/dist',
+		publicPath:'./',
 		filename: 'js/[name].js'
 	},
 	externals:{
@@ -52,7 +52,7 @@ var config = {
                 test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
                 use: [{
                     loader: 'url-loader',
-                    options: {limit: 100,name: '/resource/[name].[ext]'}
+                    options: {limit: 100,name: '/resource/[name].[ext]',publicPath:'../'}
                 }]
             },
             {

@@ -1,5 +1,5 @@
 {{#list}}
-    <li><a href="/dist/view/detail.html?id={{id}}">{{title}}</a></li>
+    <li><a href="./detail.html?id={{id}}">{{title}}</a></li>
 {{/list}}
 
 {{^list}}

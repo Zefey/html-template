@@ -1,5 +1,5 @@
 {{#list}}
-    <a href="/dist/view/list.html?labelId={{id}}"><span class="tag-item" style='{{style}}'>{{name}}</span></a>
+    <a href="./list.html?labelId={{id}}"><span class="tag-item" style='{{style}}'>{{name}}</span></a>
 {{/list}}
 
 {{^list}}

@@ -150,7 +150,7 @@ $(function(){
 /***/ 35:
 /***/ (function(module, exports) {
 
-module.exports = "{{#list}}\r\n    <div class=\"item\">\r\n        <div class=\"article\">\r\n            <a class=\"article-title\" href=\"/dist/view/detail.html?id={{id}}\"><h4>{{title}}</h4></a>\r\n            <p class=\"article-info\">\r\n                <span>post @ {{time}}</span>\r\n                <span>category: {{category}}</span>\r\n                <span></span>\r\n            </p>\r\n            <div class=\"article-content\">\r\n                {{content}}\r\n            </div>\r\n            <span class=\"article-link\">\r\n                <a href=\"/dist/view/detail.html?id={{id}}\" class=\"link\">阅读原文>></a>\r\n            </span>\r\n        </div>\r\n    </div>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
+module.exports = "{{#list}}\r\n    <div class=\"item\">\r\n        <div class=\"article\">\r\n            <a class=\"article-title\" href=\"./detail.html?id={{id}}\"><h4>{{title}}</h4></a>\r\n            <p class=\"article-info\">\r\n                <span>post @ {{time}}</span>\r\n                <span>category: {{category}}</span>\r\n                <span></span>\r\n            </p>\r\n            <div class=\"article-content\">\r\n                {{content}}\r\n            </div>\r\n            <span class=\"article-link\">\r\n                <a href=\"./detail.html?id={{id}}\" class=\"link\">阅读原文>></a>\r\n            </span>\r\n        </div>\r\n    </div>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
 
 /***/ }),
 
@@ -257,7 +257,7 @@ module.exports = Pagination;
 /***/ 7:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pg-content\">\n    {{#pageArray}}\n    {{#disabled}}\n        <span class=\"pg-item disabled\" data-value=\"{{value}}\">{{name}}</span>\n    {{/disabled}}\n    {{^disabled}}\n        {{#active}}\n            <span class=\"pg-item active\" data-value=\"{{value}}\">{{name}}</span>\n        {{/active}}\n        {{^active}}\n            <span class=\"pg-item\" data-value=\"{{value}}\">{{name}}</span>\n        {{/active}}\n    {{/disabled}}\n    {{/pageArray}}\n    <span class=\"pg-total\">{{pageNum}} / {{pages}}</span>\n</div>";
+module.exports = "<div class=\"pg-content\">\r\n    {{#pageArray}}\r\n    {{#disabled}}\r\n        <span class=\"pg-item disabled\" data-value=\"{{value}}\">{{name}}</span>\r\n    {{/disabled}}\r\n    {{^disabled}}\r\n        {{#active}}\r\n            <span class=\"pg-item active\" data-value=\"{{value}}\">{{name}}</span>\r\n        {{/active}}\r\n        {{^active}}\r\n            <span class=\"pg-item\" data-value=\"{{value}}\">{{name}}</span>\r\n        {{/active}}\r\n    {{/disabled}}\r\n    {{/pageArray}}\r\n    <span class=\"pg-total\">{{pageNum}} / {{pages}}</span>\r\n</div>";
 
 /***/ })
 
