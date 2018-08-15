@@ -80,8 +80,6 @@ var page = {
                 $('body').animate( {scrollTop: 0}, 500);
             }
         });
-        //css3动画 animated.css
-        $(".list").addClass("animated fadeInLeftBig");
     },
     list: function(){
         var _this =this;
@@ -115,6 +113,9 @@ var page = {
                 pageNum         : res.pageNum,
                 pages           : res.pages
             });
+
+            //css3动画 animated.css
+            $(".item").addClass("animated flipInX");
         },
         function (errMsg) {
             console.log(errMsg);
@@ -257,7 +258,7 @@ module.exports = Pagination;
 /***/ 7:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pg-content\">\r\n    {{#pageArray}}\r\n    {{#disabled}}\r\n        <span class=\"pg-item disabled\" data-value=\"{{value}}\">{{name}}</span>\r\n    {{/disabled}}\r\n    {{^disabled}}\r\n        {{#active}}\r\n            <span class=\"pg-item active\" data-value=\"{{value}}\">{{name}}</span>\r\n        {{/active}}\r\n        {{^active}}\r\n            <span class=\"pg-item\" data-value=\"{{value}}\">{{name}}</span>\r\n        {{/active}}\r\n    {{/disabled}}\r\n    {{/pageArray}}\r\n    <span class=\"pg-total\">{{pageNum}} / {{pages}}</span>\r\n</div>";
+module.exports = "<div class=\"pg-content\">\n    {{#pageArray}}\n    {{#disabled}}\n        <span class=\"pg-item disabled\" data-value=\"{{value}}\">{{name}}</span>\n    {{/disabled}}\n    {{^disabled}}\n        {{#active}}\n            <span class=\"pg-item active\" data-value=\"{{value}}\">{{name}}</span>\n        {{/active}}\n        {{^active}}\n            <span class=\"pg-item\" data-value=\"{{value}}\">{{name}}</span>\n        {{/active}}\n    {{/disabled}}\n    {{/pageArray}}\n    <span class=\"pg-total\">{{pageNum}} / {{pages}}</span>\n</div>";
 
 /***/ })
 

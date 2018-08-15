@@ -4,6 +4,7 @@
 }
 
 .panel {
+    border: 1px solid #aaa;
     box-shadow: 0 0 5px #aaa;
     margin: 10px;
     /* animation: b 1s; */

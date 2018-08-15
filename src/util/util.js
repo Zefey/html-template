@@ -7,7 +7,7 @@
 
 var Hogan = require('hogan.js');
 var conf = {
-	serverHost: 'http://zefey.com',
+	serverHost: 'http://www.zefey.com'
 }
 
 var util = {

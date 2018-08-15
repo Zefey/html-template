@@ -6,10 +6,11 @@
 .item {
     height: 150px;
     margin: 10px 5px;
+    border: 1px solid #aaa;
     box-shadow: 0 0 5px #aaa;
     transition: box-shadow .3s ease-in;
-    animation: a 1s;
-    -webkit-animation: a 1s;
+    /* animation: a 1s; */
+    /* -webkit-animation: a 1s; */
 }
 
 .item:hover {

@@ -15,7 +15,7 @@ var Pagination = function(){
     this.defaultOption = {
         container       : null,
         pageNum         : 1,
-        pageRange       : 3,
+        pageRange       : 4,
         onSelectPage    : null
     };
     // 事件的处理

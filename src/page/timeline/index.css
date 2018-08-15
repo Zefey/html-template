@@ -1,0 +1,110 @@
+.timeline {
+    float:left;
+    width: 828px;
+    margin: 10px 5px;
+    border: 1px solid #333;
+    box-shadow: 0 0 12px #333;
+    transition: box-shadow .3s ease-in;
+}
+
+article,section,time,aside{
+    display:block;
+}
+
+.point-time {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  top: 2px;
+  left: 20%;
+  background: #1c87bf;
+  margin-left: -4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #fff;
+}
+
+.timeline article {
+  position: relative;
+}
+
+.timeline article h3 {
+  width: 15%;
+  height: 20px;
+  line-height: 20px;
+  text-align: right;
+  font-size: 1.6em;
+  color: #1d1d1d;
+  padding: 10px 0 20px;
+}
+
+.timeline article section {
+  padding: 0 0 17px;
+  position: relative;
+}
+
+.timeline article section:before {
+  content: "";
+  width: 5px;
+  top: 17px;
+  bottom: -17px;
+  left: 20%;
+  background: #e6e6e6;
+  position: absolute;
+}
+
+.timeline article section:last-child:before {
+  display: none;
+}
+
+.timeline article section time {
+  width: 15%;
+  display: block;
+  position: absolute;
+}
+
+.timeline article section time > span {
+  display: block;
+  text-align: right;
+}
+
+.timeline article section aside {
+  color: #3a3a38;
+  margin-left: 25%;
+  padding-bottom: 15px;
+}
+
+
+.scroll-top{
+    position: fixed;
+    bottom: 80px;
+    right: 80px;
+    height: 40px;
+    width:40px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+    font-size: 38px;
+    color: #666;
+    display: none;
+}
+
+.point-red {
+  background-color: #f6393f;
+}
+
+.point-blue {
+  background-color: #1c87bf;
+}
+
+.point-green {
+  background-color: #95c91e;
+}
+
+.point-yellow {
+  background-color: #ffb902;
+}
+
+.point-purple {
+  background-color: #d32d93;
+}

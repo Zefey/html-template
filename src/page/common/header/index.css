@@ -7,16 +7,15 @@
 .header{
     height: 120px;
 	/* line-height: 100px; */
+    background-color: #666;
 	background: linear-gradient(#444,#666);
-}
-.header .logo{
-    cursor: pointer;
 }
 
 .logo span{
     color: #fff;
     font-size: 38px;
     font-weight:500;
+    cursor: pointer;
 }
 
 .logo span:first-child{

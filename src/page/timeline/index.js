@@ -3,21 +3,17 @@ require('page/common/header/index.js')
 require('page/common/side/index.js')
 require('./index.css')
 
-var showdown  = require('showdown');
 var util = require('util/util.js');
 var blog = require('service/blog-service.js');
-var templateDetail   = require('./detail.string');
+var templateTimeline   = require('./index.string');
 
 var page = {
-    data:{
-        id:util.getUrlParam('id')
-    },
     init: function(){
         this.onLoad();
         this.bindEvent();
     },
     onLoad: function(){
-        this.detail();
+        this.timeline();
     },
     bindEvent: function(){
         var _this = this;
@@ -44,24 +40,32 @@ var page = {
                 $('body').animate( {scrollTop: 0}, 500);
             }
         });
-        //css3动画 animated.css
-        $('.detail').addClass('animated bounceInUp');
+
     },
-    detail: function(){
+    timeline: function(){
         var _this =this;
-        var reqData ={
-            id : this.data.id
-        };
+        var reqData ={};
 
-        blog.detail(reqData,function(res){
+        blog.timeline(reqData,function(res){
+            var data = res.data;
+            var colors = ['point-red','point-blue','point-green','point-yellow','point-purple']
+            for(var i in data){
+                for(var j in data[i]){
+                    for(var k in data[i][j]){
+                        var random =  Math.floor(Math.random()*5);
+                        data[i][j][k]['color']=colors[random];
+                    }
+                }
+            }
             console.log(res);
-            listHtml = util.renderHtml(templateDetail, res.data[0]);
+            timelineHtml = util.renderHtml(templateTimeline, {
+                list : res.data
+            });
 
-            $(".detail").html(listHtml);
-            var converter = new showdown.Converter(),
-                text      = res.data[0]['content'],
-                html      = converter.makeHtml(text);
-            $(".article-content").html(html);
+            $(".timeline").html(timelineHtml);
+
+            //css3动画 animated.css
+            $("aside").addClass("animated slideInRight");
         },
         function (errMsg) {
             console.log(errMsg);

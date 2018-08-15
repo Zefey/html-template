@@ -34,7 +34,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		3: 0
+/******/ 		4: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -163,7 +163,7 @@
 
 var Hogan = __webpack_require__(17);
 var conf = {
-	serverHost: 'http://zefey.com',
+	serverHost: 'http://www.zefey.com'
 }
 
 var util = {
@@ -295,6 +295,15 @@ var blog = {
             success : resolve,
             error : reject
         })
+    },
+    timeline: function(reqData, resolve, reject){
+        util.request({
+            url : util.getServerUrl('/blog/timeline'),
+            data : reqData,
+            method : 'GET',
+            success : resolve,
+            error : reject
+        })
     }
 }
 
@@ -319,8 +328,14 @@ var page = {
     },
     bindEvent: function(){
         var _this = this;
-        $('.link:first').click(function (){
+        $('.link:eq(0)').click(function (){
             util.goHome();
+        });
+        $('.link:eq(1)').click(function (){
+            window.location.href = './list.html';
+        });
+        $('.link:eq(2)').click(function (){
+            window.location.href = './timeline.html';
         });
         $('.search-icon').click(function (){
             _this.searchSubmit();
@@ -451,7 +466,7 @@ var page = {
                 'background-color:rgb(16, 142, 233)'
             ]
             for(var i in data){
-                let random =  Math.floor(Math.random()*5);
+                var random =  Math.floor(Math.random()*5);
                 data[i]['style']=styles[random];
             }
             listHtml = util.renderHtml(templateLabel, {

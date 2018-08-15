@@ -12,8 +12,14 @@ var page = {
     },
     bindEvent: function(){
         var _this = this;
-        $('.link:first').click(function (){
+        $('.link:eq(0)').click(function (){
             util.goHome();
+        });
+        $('.link:eq(1)').click(function (){
+            window.location.href = './list.html';
+        });
+        $('.link:eq(2)').click(function (){
+            window.location.href = './timeline.html';
         });
         $('.search-icon').click(function (){
             _this.searchSubmit();

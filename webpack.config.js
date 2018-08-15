@@ -16,7 +16,7 @@ var getHtmlConfig = function (name, title){
 	return {
 		template:__dirname + '/src/view/'+ name +'.html',
 		filename: name +'.html',
-    title:title,
+        title:title,
 		inject:true,
 		hash:true,
 		chunks:['common', name]
@@ -29,11 +29,13 @@ var config = {
 		'common':[__dirname + '/src/page/common/index.js'],
         'index': [__dirname + '/src/page/index/index.js'],
         'detail': [__dirname + '/src/page/detail/index.js'],
-        'list': [__dirname + '/src/page/list/index.js']
+        'list': [__dirname + '/src/page/list/index.js'],
+        'timeline': [__dirname + '/src/page/timeline/index.js']
 	},
 	output: {
 		path: __dirname + '/dist',
-		publicPath:'./',
+        // publicPath:'./',
+		publicPath:'/dist',
 		filename: 'js/[name].js'
 	},
 	externals:{
@@ -52,7 +54,9 @@ var config = {
                 test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
                 use: [{
                     loader: 'url-loader',
-                    options: {limit: 100,name: '/resource/[name].[ext]',publicPath:'../'}
+                    options: {limit: 100,name: '/resource/[name].[ext]',
+                    // publicPath:'../'
+                    }
                 }]
             },
             {
@@ -86,7 +90,8 @@ var config = {
 		// html模版处理
         new HtmlWebpackPlugin(getHtmlConfig('index','首页 - Zefey')),
         new HtmlWebpackPlugin(getHtmlConfig('detail','详情 - Zefey')),
-        new HtmlWebpackPlugin(getHtmlConfig('list','列表 - Zefey'))
+        new HtmlWebpackPlugin(getHtmlConfig('list','列表 - Zefey')),
+        new HtmlWebpackPlugin(getHtmlConfig('timeline','归档 - Zefey'))
 	]
 };
 

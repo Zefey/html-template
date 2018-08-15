@@ -43,16 +43,17 @@ var page = {
         });
         //
         $(document).on('click','#scrollTop',function(event){
-            if($('html').scrollTop()){
-                $('html').animate( {scrollTop: 0}, 500);
-                return;
-            }
-            if($('body').scrollTop()){
-                $('body').animate( {scrollTop: 0}, 500);
-            }
+            _this.scrollToTop();
         });
-        //css3动画 animated.css
-        $(".list").addClass("animated fadeInLeftBig");
+    },
+    scrollToTop: function(){
+        if($('html').scrollTop()){
+            $('html').animate( {scrollTop: 0}, 500);
+            return;
+        }
+        if($('body').scrollTop()){
+            $('body').animate( {scrollTop: 0}, 500);
+        }
     },
     list: function(){
         var _this =this;
@@ -83,6 +84,9 @@ var page = {
                 pageNum         : res.pageNum,
                 pages           : res.pages
             });
+
+            //css3动画 animated.css
+            $(".item").addClass("animated flipInX");
         },
         function (errMsg) {
             console.log(errMsg);
@@ -95,6 +99,7 @@ var page = {
             container : $('.pagination'),
             onSelectPage : function(pageNum){
                 _this.data.pageNum = pageNum;
+                _this.scrollToTop();
                 _this.list();
             }
         }));

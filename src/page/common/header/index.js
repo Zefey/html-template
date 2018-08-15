@@ -16,7 +16,7 @@ var header = {
 	bindEvent : function(){
 		var _this = this;
 
-        $('.logo').click(function (){
+        $('.logo span').click(function (){
             util.goHome();
         });
 

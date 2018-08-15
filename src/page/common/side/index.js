@@ -69,7 +69,7 @@ var page = {
                 'background-color:rgb(16, 142, 233)'
             ]
             for(var i in data){
-                let random =  Math.floor(Math.random()*5);
+                var random =  Math.floor(Math.random()*5);
                 data[i]['style']=styles[random];
             }
             listHtml = util.renderHtml(templateLabel, {

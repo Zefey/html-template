@@ -79,7 +79,7 @@ var page = {
         function (errMsg) {
             console.log(errMsg);
         });
-    },
+    }
 }
 
 $(function(){

@@ -1,0 +1,21 @@
+{{#list}}
+<article>
+    <h3>{{time}}</h3>
+    {{#data}}
+    <section>
+        <span class="point-time {{color}}"/>
+        <time>
+            <span>{{time}}</span>
+        </time>
+        <aside>
+            <a href="./detail.html?id={{id}}" class="link">{{title}}</a>
+        </aside>
+    </section>
+    {{/data}}
+    {{^data}}
+    {{/data}}
+</article>
+{{/list}}
+
+{{^list}}
+{{/list}}

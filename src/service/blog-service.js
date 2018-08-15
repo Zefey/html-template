@@ -52,6 +52,15 @@ var blog = {
             success : resolve,
             error : reject
         })
+    },
+    timeline: function(reqData, resolve, reject){
+        util.request({
+            url : util.getServerUrl('/blog/timeline'),
+            data : reqData,
+            method : 'GET',
+            success : resolve,
+            error : reject
+        })
     }
 }
 
