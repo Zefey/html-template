@@ -3,6 +3,7 @@ require('page/common/header/index.js')
 require('page/common/side/index.js')
 require('./index.css')
 
+require('github-markdown-css')
 var showdown  = require('showdown');
 var util = require('util/util.js');
 var blog = require('service/blog-service.js');

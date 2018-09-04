@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 32:
+/***/ 33:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(33);
+module.exports = __webpack_require__(34);
 
 
 /***/ }),
 
-/***/ 33:
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -21,12 +21,12 @@ module.exports = __webpack_require__(33);
 __webpack_require__(2)
 __webpack_require__(3)
 __webpack_require__(4)
-__webpack_require__(34)
+__webpack_require__(35)
 
 var util = __webpack_require__(0);
 var Pagination = __webpack_require__(5);
 var blog = __webpack_require__(1);
-var templateIndex   = __webpack_require__(35);
+var templateIndex   = __webpack_require__(36);
 
 var page = {
     data: {
@@ -72,14 +72,17 @@ var page = {
         });
         //
         $(document).on('click','#scrollTop',function(event){
-            if($('html').scrollTop()){
-                $('html').animate( {scrollTop: 0}, 500);
-                return;
-            }
-            if($('body').scrollTop()){
-                $('body').animate( {scrollTop: 0}, 500);
-            }
+            _this.scrollToTop();
         });
+    },
+    scrollToTop: function(){
+        if($('html').scrollTop()){
+            $('html').animate( {scrollTop: 0}, 500);
+            return;
+        }
+        if($('body').scrollTop()){
+            $('body').animate( {scrollTop: 0}, 500);
+        }
     },
     list: function(){
         var _this =this;
@@ -128,6 +131,7 @@ var page = {
             container : $('.pagination'),
             onSelectPage : function(pageNum){
                 _this.data.pageNum = pageNum;
+                _this.scrollToTop();
                 _this.list();
             }
         }));
@@ -141,14 +145,14 @@ $(function(){
 
 /***/ }),
 
-/***/ 34:
+/***/ 35:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 35:
+/***/ 36:
 /***/ (function(module, exports) {
 
 module.exports = "{{#list}}\r\n    <div class=\"item\">\r\n        <div class=\"article\">\r\n            <a class=\"article-title\" href=\"./detail.html?id={{id}}\"><h4>{{title}}</h4></a>\r\n            <p class=\"article-info\">\r\n                <span>post @ {{time}}</span>\r\n                <span>category: {{category}}</span>\r\n                <span></span>\r\n            </p>\r\n            <div class=\"article-content\">\r\n                {{content}}\r\n            </div>\r\n            <span class=\"article-link\">\r\n                <a href=\"./detail.html?id={{id}}\" class=\"link\">阅读原文>></a>\r\n            </span>\r\n        </div>\r\n    </div>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
@@ -176,7 +180,7 @@ var Pagination = function(){
     this.defaultOption = {
         container       : null,
         pageNum         : 1,
-        pageRange       : 3,
+        pageRange       : 4,
         onSelectPage    : null
     };
     // 事件的处理
@@ -262,4 +266,4 @@ module.exports = "<div class=\"pg-content\">\n    {{#pageArray}}\n    {{#disable
 
 /***/ })
 
-},[32]);
+},[33]);

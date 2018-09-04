@@ -11,11 +11,11 @@
     /* -webkit-animation: b 1s; */
 }
 
-ol>li {
+.panel ol>li {
     list-style: decimal inside;
 }
 
-ul>li {
+.panel ul>li {
     list-style: square inside;
 }
 

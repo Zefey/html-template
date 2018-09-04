@@ -5,6 +5,6 @@
         <span>{{category}} |</span>
         <span><i class="fa fa-tag"></i> {{label}}</span>
     </p>
-    <div class="article-content">
+    <div class="article-content markdown-body">
     </div>
 </div>

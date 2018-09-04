@@ -16,10 +16,11 @@ __webpack_require__(3)
 __webpack_require__(4)
 __webpack_require__(29)
 
-var showdown  = __webpack_require__(30);
+__webpack_require__(30)
+var showdown  = __webpack_require__(31);
 var util = __webpack_require__(0);
 var blog = __webpack_require__(1);
-var templateDetail   = __webpack_require__(31);
+var templateDetail   = __webpack_require__(32);
 
 var page = {
     data:{
@@ -97,6 +98,13 @@ $(function(){
 /***/ }),
 
 /***/ 30:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;;/*! showdown v 1.8.6 - 22-12-2017 */
@@ -4608,10 +4616,10 @@ if (true) {
 
 /***/ }),
 
-/***/ 31:
+/***/ 32:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"article\">\r\n    <h4 class=\"article-title\">{{title}}</h4>\r\n    <p class=\"article-info\">\r\n        <span>Last Modified : {{time}} |</span>\r\n        <span>{{category}} |</span>\r\n        <span><i class=\"fa fa-tag\"></i> {{label}}</span>\r\n    </p>\r\n    <div class=\"article-content\">\r\n    </div>\r\n</div>\r\n";
+module.exports = "<div class=\"article\">\r\n    <h4 class=\"article-title\">{{title}}</h4>\r\n    <p class=\"article-info\">\r\n        <span>Last Modified : {{time}} |</span>\r\n        <span>{{category}} |</span>\r\n        <span><i class=\"fa fa-tag\"></i> {{label}}</span>\r\n    </p>\r\n    <div class=\"article-content markdown-body\">\r\n    </div>\r\n</div>\r\n";
 
 /***/ })
 

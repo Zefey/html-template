@@ -177,14 +177,12 @@ input[type='checkbox']{
     background-color: #666;
 	background: linear-gradient(#444,#666);
 }
-.header .logo{
-    cursor: pointer;
-}
 
 .logo span{
     color: #fff;
     font-size: 38px;
     font-weight:500;
+    cursor: pointer;
 }
 
 .logo span:first-child{
@@ -208,11 +206,11 @@ input[type='checkbox']{
     /* -webkit-animation: b 1s; */
 }
 
-ol>li {
+.panel ol>li {
     list-style: decimal inside;
 }
 
-ul>li {
+.panel ul>li {
     list-style: square inside;
 }
 

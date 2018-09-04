@@ -56,14 +56,17 @@ var page = {
         });
         //
         $(document).on('click','#scrollTop',function(event){
-            if($('html').scrollTop()){
-                $('html').animate( {scrollTop: 0}, 500);
-                return;
-            }
-            if($('body').scrollTop()){
-                $('body').animate( {scrollTop: 0}, 500);
-            }
+            _this.scrollToTop();
         });
+    },
+    scrollToTop: function(){
+        if($('html').scrollTop()){
+            $('html').animate( {scrollTop: 0}, 500);
+            return;
+        }
+        if($('body').scrollTop()){
+            $('body').animate( {scrollTop: 0}, 500);
+        }
     },
     list: function(){
         var _this =this;
@@ -109,6 +112,7 @@ var page = {
             container : $('.pagination'),
             onSelectPage : function(pageNum){
                 _this.data.pageNum = pageNum;
+                _this.scrollToTop();
                 _this.list();
             }
         }));
@@ -132,7 +136,7 @@ $(function(){
 /***/ 26:
 /***/ (function(module, exports) {
 
-module.exports = "{{#list}}\r\n    <div class=\"item\">\r\n        <div class=\"article\">\r\n            <a class=\"article-title\" href=\"./detail.html?id={{id}}\"><h4>{{title}}</h4></a>\r\n            <p class=\"article-info\">\r\n                <span>post @ {{time}}</span>\r\n                <span>category: {{category}}</span>\r\n                <span></span>\r\n            </p>\r\n            <div class=\"article-content\">\r\n                {{content}}\r\n            </div>\r\n            <span class=\"article-link\">\r\n                <a href=\"./detail.html?id={{id}}\" class=\"link\">阅读原文>></a>\r\n            </span>\r\n        </div>\r\n    </div>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
+module.exports = "{{#list}}\r\n<div class=\"item\">\r\n    <div class=\"article\">\r\n        <a class=\"article-title\" href=\"./detail.html?id={{id}}\"><h4>{{title}}</h4></a>\r\n        <p class=\"article-info\">\r\n            <span>post @ {{time}}</span>\r\n            <span>category: {{category}}</span>\r\n            <span></span>\r\n        </p>\r\n        <div class=\"article-content\">\r\n            {{content}}\r\n        </div>\r\n        <span class=\"article-link\">\r\n            <a href=\"./detail.html?id={{id}}\" class=\"link\">阅读原文>></a>\r\n        </span>\r\n    </div>\r\n</div>\r\n{{/list}}\r\n\r\n{{^list}}\r\n{{/list}}\r\n";
 
 /***/ }),
 
@@ -157,7 +161,7 @@ var Pagination = function(){
     this.defaultOption = {
         container       : null,
         pageNum         : 1,
-        pageRange       : 3,
+        pageRange       : 4,
         onSelectPage    : null
     };
     // 事件的处理
