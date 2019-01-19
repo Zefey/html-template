@@ -34,8 +34,7 @@ var config = {
 	},
 	output: {
 		path: __dirname + '/dist',
-        publicPath:'./',
-		// publicPath:'/dist',
+		publicPath:'/',
 		filename: 'js/[name].js'
 	},
 	externals:{
@@ -54,8 +53,8 @@ var config = {
                 test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
                 use: [{
                     loader: 'url-loader',
-                    options: {limit: 100,name: '/resource/[name].[ext]',
-                    publicPath:'../'
+                    options: {limit: 100,name: 'resource/[name].[ext]',
+                    // publicPath:'/'
                     }
                 }]
             },

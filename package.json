@@ -38,6 +38,6 @@
     "url-loader": "0.6.2",
     "wangeditor": "^3.1.1",
     "webpack": "3.10.0",
-    "webpack-dev-server": "2.9.7"
+    "webpack-dev-server": "3.1.11"
   }
 }
