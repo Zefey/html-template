@@ -15,7 +15,7 @@ const isDev = process.env.WEBPACK_ENV === 'development';
 var getHtmlConfig = function (name, title){
 	return {
 		template:__dirname + '/src/view/'+ name +'.html',
-		filename: name +'.html',
+        filename: name +'.html',
         title:title,
 		inject:true,
 		hash:true,
