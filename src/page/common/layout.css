@@ -87,3 +87,37 @@ input[type='checkbox']{
 	height:100px;
 	background: url(../../image/loading.gif) no-repeat;
 }
+
+
+/*媒体查询*/
+/* html只是为了添加权重 */
+@media (max-width: 1080px) {
+    html .w{
+		width: 95%;
+		margin:0 auto;
+		position: relative;
+		overflow: hidden;
+	}
+	html .pagination{
+		width: 96%;
+	}
+	html .list{
+		width: 96%;
+	}
+	html .detail{
+		width: 96%;
+	}
+	html .timeline{
+		width: 96%;
+	}
+	html .side {
+		display: none;
+	}
+	html .nav-bar{
+		display: none;
+	}
+	html .scroll-top{
+		bottom: 10px;
+		right: 10px;
+	}
+}
