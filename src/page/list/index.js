@@ -81,14 +81,6 @@ var page = {
         };
 
         blog.list(reqData,function(res){
-            var data = res.data;
-            for(var i in data){
-                for(var key in data[i]){
-                    if(key == 'content' && data[i][key].length > 40){
-                        data[i][key] = data[i][key].substring(0,40)+'...';
-                    }
-                }
-            }
             listHtml = util.renderHtml(templateIndex, {
                 list : res.data
             });

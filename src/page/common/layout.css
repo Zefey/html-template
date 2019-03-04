@@ -94,9 +94,6 @@ input[type='checkbox']{
 @media (max-width: 1080px) {
     html .w{
 		width: 95%;
-		margin:0 auto;
-		position: relative;
-		overflow: hidden;
 	}
 	html .pagination{
 		width: 96%;

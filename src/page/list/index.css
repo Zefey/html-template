@@ -28,6 +28,14 @@
     text-decoration: none;
 }
 
+.article-title h4{
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+}
+
 .article-info {
     color: #666;
     padding: 6px 0px;
@@ -37,6 +45,12 @@
     padding: 5px 0px;
     font-size: 14px;
     color: #333;
+    
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
 }
 
 .article-link {
