@@ -110,11 +110,14 @@ input[type='checkbox']{
 	html .side {
 		display: none;
 	}
-	html .nav-bar{
-		display: none;
-	}
 	html .scroll-top{
 		bottom: 10px;
 		right: 10px;
+	}
+}
+
+@media (max-width: 500px) {
+    html .nav-bar{
+		display: none;
 	}
 }
