@@ -41,10 +41,11 @@ var page = {
             }
 
         });
-        //
+
         $(document).on('click','#scrollTop',function(event){
             _this.scrollToTop();
         });
+
     },
     scrollToTop: function(){
         if($('html').scrollTop()){
@@ -66,35 +67,35 @@ var page = {
                 list : res.data
             });
 
-            $(".list").html(listHtml);
-
-            _this.loadPagination({
-                hasPreviousPage : res.hasPreviousPage,
-                prePage         : res.prePage,
-                hasNextPage     : res.hasNextPage,
-                nextPage        : res.nextPage,
-                pageNum         : res.pageNum,
-                pages           : res.pages
-            });
+            $(".list").append(listHtml);
 
             //css3动画 animated.css
             $(".item").addClass("animated flipInX");
+
+            if(_this.data.pageNum < res.pages){
+                console.log();
+                //下拉加载监听
+                _this.startBlogInterval();
+            }else{
+                _this.stopBlogInterval();
+            }
         },
         function (errMsg) {
             console.log(errMsg);
         });
     },
-    loadPagination : function(pageInfo){
+    startBlogInterval:function(){
         var _this = this;
-        this.pagination ? '' : (this.pagination = new Pagination());
-        this.pagination.render($.extend({}, pageInfo, {
-            container : $('.pagination'),
-            onSelectPage : function(pageNum){
-                _this.data.pageNum = pageNum;
-                _this.scrollToTop();
+        this.blogInterval = setInterval(function(){
+            if(util.isScrollToPageBottom()){
+                _this.data.pageNum++;
                 _this.list();
+                _this.stopBlogInterval();
             }
-        }));
+        }, 900);
+    },
+    stopBlogInterval:function(){
+        this.blogInterval && clearInterval(this.blogInterval);
     }
 }
 
