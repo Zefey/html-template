@@ -84,6 +84,7 @@
 .loading-contain {
     float: left;
     width: 830px;
+    display: none;
 }
 
 @keyframes a {
