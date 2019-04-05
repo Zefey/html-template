@@ -83,9 +83,12 @@ input[type='checkbox']{
 
 .loading{
 	display:block;
+	margin: 0 auto;
 	width: 100px;
 	height:100px;
-	background: url(../../image/loading.gif) no-repeat;
+	text-align: center;
+	background: url(../../image/loading.gif) no-repeat center;
+	background-size: 100px 100px;
 }
 
 
@@ -95,7 +98,7 @@ input[type='checkbox']{
     html .w{
 		width: 95%;
 	}
-	html .pagination{
+	html .loading-contain{
 		width: 96%;
 	}
 	html .list{
@@ -113,6 +116,7 @@ input[type='checkbox']{
 	html .scroll-top{
 		bottom: 10px;
 		right: 10px;
+		z-index: 10000;
 	}
 }
 

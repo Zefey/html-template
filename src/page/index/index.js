@@ -11,7 +11,6 @@ require('page/common/side/index.js')
 require('./index.css')
 
 var util = require('util/util.js');
-var Pagination = require('util/pagination/index.js');
 var blog = require('service/blog-service.js');
 var templateIndex   = require('./index.string');
 
@@ -73,10 +72,11 @@ var page = {
             $(".item").addClass("animated flipInX");
 
             if(_this.data.pageNum < res.pages){
-                console.log();
+                $(".loading").show();
                 //下拉加载监听
                 _this.startBlogInterval();
             }else{
+                $(".loading").hide();
                 _this.stopBlogInterval();
             }
         },

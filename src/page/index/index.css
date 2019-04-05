@@ -28,12 +28,13 @@
     text-decoration: none;
 }
 .article-title h4{
-    display: -webkit-box;
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; */
+    
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    white-space:nowrap;/*IE兼容*/
+    white-space:nowrap;
 }
 
 .article-info {
@@ -46,12 +47,12 @@
     font-size: 14px;
     color: #333;
     
-    display: -webkit-box;
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; */
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    white-space:nowrap;/*IE兼容*/
+    white-space:nowrap;
 
 }
 
@@ -80,10 +81,10 @@
     display: none;
 }
 
-.pagination {
+.loading-contain {
     float: left;
     width: 830px;
-    margin: 10px;
+    display: none;
 }
 
 @keyframes a {
