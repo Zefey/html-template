@@ -84,7 +84,7 @@ var util = {
                 document.documentElement.scrollTop ||
                 document.body.scrollTop || 0;
 
-        return documentHeight - viewPortHeight - scrollHeight < 20;
+        return documentHeight - viewPortHeight - scrollHeight < 100;
 	},
 	getViewportSize:function(w){
         //使用指定的窗口， 如果不带参数则使用当前窗口
